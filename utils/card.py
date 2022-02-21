@@ -1,14 +1,17 @@
-import random
+#import random
 
 class Symbol:
-    #color=''
-    #icon=''
-    def __init__(self):
-        self.color=random.choice(['red','black'])
-        self.icon=random.choice(['♥', '♦', '♣', '♠'])
-
-class Card(Symbol):
-    def __init__(self):
-        self.value=random.choice(['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K'])
+    def __init__(self,icon):
+        self.icon=icon #(['♥', '♦', '♣', '♠'])
+        if icon == '♦' or icon == '♥':
+            self.color='red'
+        else:            
+            self.color='black'  #['red','black']
         
+class Card(Symbol):
+    def __init__(self,value,icon):
+        super().__init(icon)
+        self.value=value  #(['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K'])
+        #self.icon=icon
+        #self.color=color
         

@@ -1,31 +1,8 @@
-#import random
 
-class Symbol:
-    def __init__(self,icon):
-        self.icon=icon #(['♥', '♦', '♣', '♠'])
-        if icon == '♦' or icon == '♥':
-            self.color='red'
-        else:            
-            self.color='black'  #['red','black']
-        
-class Card(Symbol):
-    def __init__(self,value,icon):
-        super().__init(icon)
-        self.value=value  #(['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K'])
-        #self.icon=icon
-        #self.color=color
-        
-
-
-
-#############################################
-
-
-#from card.py import Card
-#from random import choice
-
-
-        
+from card.py import Card
+from random import choice
+from random import shuffle
+  
 class Player:
     #players=[] #alist of all players
     turn_counts=0
@@ -61,7 +38,7 @@ class Deck:
         
     #shuffle all the list of `cards`
     def shuffle(self):
-        random.shuffle(self.cards)
+        shuffle(self.cards)
         
     #distribute the cards evenly between all the players.
     def distribute(self,players):

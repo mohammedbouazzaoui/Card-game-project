@@ -1,20 +1,66 @@
+#Project : challenge-card-game-becode
 #FILE: player.py
+#
+# contains : Class Player, Class Deck 
+#
 
 from card import Card
 from random import choice as rndchoice
 from random import shuffle as rndshuffle
 
+from typing import List
         
 class Player:
+    """
+    A class used to ....
     
+    Inherited Classes
+    -----------------
+    Inherits from ....
+    
+    Attributes
+    ----------
+    playername:         str 
+    cards:              List[Card] 
+    turn_count:         int 
+    number_of_cards:    int 
+    history:            List[Card]   
+ 
+    
+    Methods:
+    --------
+    play(self) -> Card:  returns a Card
+    
+    
+    
+    Raises:
+    -------
+    Exception is raised for unknown card value.
+    """
     def __init__(self,playername: str):
         self.playername: str = playername
-        self.cards: [Card] = [] 
+        self.cards: List[Card] = [] 
         self.turn_count: int = 0
         self.number_of_cards: int = 0 
-        self.history: [Card] = [] 
+        self.history: List[Card] = [] 
 
     def play(self) -> Card:
+        """
+        Description:
+        ------------
+        selects randomly one of its cards and returns it as a Card object.
+        print(f'{self.playername} {self.turn_count} played: {card_picked.value} {card_picked.icon}')
+        A played card is then removed.
+        
+        Parameters
+        ----------
+        None
+        
+        Returns
+        -------
+        an object of Card
+        """
+        
         if self.cards == []:
             return []
         self.turn_count+=1
@@ -25,7 +71,21 @@ class Player:
         return card_picked
         
 class Deck:
+    """
+    Description:
+    ------------
+    selects randomly one of its cards and returns it as a Card object.
+    print(f'{self.playername} {self.turn_count} played: {card_picked.value} {card_picked.icon}')
+    A played card is then removed.
     
+    Parameters
+    ----------
+    None
+    
+    Returns
+    -------
+    an object of Card
+    """
     def __init__(self):
         self.cards: [Card] = [] #a list of instances of `Card`
     

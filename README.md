@@ -6,8 +6,8 @@
 
 ## DESCRIPTION
 --------------
-The game will simulate players that receive cards from 52 carddeck and
-will simulate a game game by having every player pick automatically
+The game will simulate players that receive 52 cards from a shuffled carddeck and
+will simulate a game by having every player pick automatically
 a random card and play it against the other players.
 So for every round evey player has to show one card.
 When all the cards have been shown, the game ends.

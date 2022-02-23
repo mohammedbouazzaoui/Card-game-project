@@ -1,10 +1,14 @@
-#Project : challenge-card-game-becode
-#FILE: card.py
+# Project : challenge-card-game-becode
+# FILE: card.py
+#
+# Author: Bouazzaoui M.
+# Date: 23/02/2022
+# Version: 1.0
 #
 
 class Symbol:
     """
-    A class used to represent the card icons with their appropriate colors.
+    The class creates a Symbol object with an icon and corresponding color.
     
     Attributes
     ----------
@@ -13,36 +17,44 @@ class Symbol:
     
     Methods:
     --------
-    None
+    __init__    : Initializes the object.
+    __str__     : Function that returns an information string of the object.
     
     Raises:
     -------
-    Exception is raised for unknown icon
+    TypeError : ('Exception: Unknown icon!')
     """
-    
-    def __init__(self,icon: chr ):
+
+    def __init__(self, icon: chr):
         """
-        Function that will initialize the icon and set its color.
+        Init function that will initialize an icon and set its color. If icon
+        is unknown then color will be empty.
         
         :param icon: a char string that will be one of ['♥', '♦', '♣', '♠']
-        :raises: raise an exception if icon is unknown.
+        :raises: TypeError("Exception: Unknown icon!")
         """
-        self.icon=icon 
-        if icon == '♦' or icon == '♥':
-            self.color = 'red'
-        elif icon == '♣' or icon == '♠':        
-            self.color = 'black'  
-        else:
-            self.color = ''
+        
+        if icon not in ["♥", "♦", "♣", "♠"]:
+            raise TypeError("Exception: Unknown icon!")
+        self.icon = icon
+        if icon == "♦" or icon == "♥":
+            self.color = "red"
+        elif icon == "♣" or icon == "♠":
+            self.color = "black"
 
-            
-    def __str__(self):
-        info=str(self.icon) + ' ' + str(self.color)
-        return info 
-    
+    def __str__(self) -> str:
+        """
+        Function that creates an information string of the object.
+        
+        :return: information string.
+        """
+        
+        info = str(self.icon) + " " + str(self.color)
+        return info
+
 class Card(Symbol):
     """
-    A class used to represent a card with its symbols.
+    Class Cards create an object Card with its value and icon.
     
     Inherited Classes
     -----------------
@@ -50,58 +62,53 @@ class Card(Symbol):
     
     Attributes
     ----------
-    value : list of strings of one of these ['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K']
+    value : list of strings of one of these 
+            ['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K']
     
     Methods:
     --------
-    None
+    __init__    : Initializes the object.
+    __str__     : Function that returns an information string of the object.
     
     Raises:
     -------
-    Exception is raised for unknown card value.
+    TypeError("Exception: Unknown card value!")
     """
-    
-    def __init__(self,value: str,icon: chr):
+
+    def __init__(self, value: str, icon: chr):
         """
-        Parameters
-        ----------
-        value : list of strings of one of these ['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        icon : character string one of these ['♥', '♦', '♣', '♠']
+        Init function that will initialize a card using the received value and 
+        icon.
         
-        Returns
-        -------
-        None
-        
-        Raises
-        ------
-        Exception is raised for unknown card value.
+        :param value: a str 
+        :param icon: a char string that will be one of ['♥', '♦', '♣', '♠']
+        :raises: Exception is raised if value is unknown
         """
-        
         super().__init__(icon)
-        if value in ['A', '2', '3','4','5','6', '7', '8', '9', '10', 'J', 'Q', 'K']:
-            self.value = value
-        else:
-            raise Exception("Unknown card value!")
+        if value not in [
+            "A",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "J",
+            "Q",
+            "K",
+        ]:
+            raise TypeError("Exception: Unknown card value!")
 
+        self.value = value
 
-a=Symbol('♥')
-print(a.__str__())
-print(a)
-print(str(a))
-print(a.__repr__())
-    
-class MyClass:
-    x = 0
-    y = ""
-
-    def __init__(self, anyNumber, anyString):
-        self.x = anyNumber
-        self.y = anyString
-    def __str__ (self):
-        return 'MyClass(x=' + str(self.x) + ' ,y=' + self.y + ')'
-myObject = MyClass(12345, "Hello")
-
-print(myObject.__str__())
-print(myObject)
-print(str(myObject))
-print(myObject.__repr__())
+    def __str__(self) -> str:
+        """
+        Function that creates an information string of the object.
+        
+        :return: information string.
+        """
+        info = str(self.value) + " " + str(self.icon)
+        return info

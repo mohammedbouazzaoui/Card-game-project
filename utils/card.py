@@ -6,6 +6,7 @@
 # Version: 1.0
 #
 
+
 class Symbol:
     """
     The class creates a Symbol object with an icon and corresponding color.
@@ -33,7 +34,7 @@ class Symbol:
         :param icon: a char string that will be one of ['♥', '♦', '♣', '♠']
         :raises: TypeError("Exception: Unknown icon!")
         """
-        
+
         if icon not in ["♥", "♦", "♣", "♠"]:
             raise TypeError("Exception: Unknown icon!")
         self.icon = icon
@@ -48,9 +49,10 @@ class Symbol:
         
         :return: information string.
         """
-        
+
         info = str(self.icon) + " " + str(self.color)
         return info
+
 
 class Card(Symbol):
     """

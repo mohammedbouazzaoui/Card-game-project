@@ -41,12 +41,26 @@ class Board:
         :param players: a list of Player objects
         """
         
-        self.players: [Player] = players
+        self.players: List[Player] = players
         self.turn_count: int = 0
         self.active_cards: [Card] = [] #last card played by each player
         self.history_cards: [Card] = []
     
     def start_game(self) -> None:
+        """
+        Function that will 
+        Start the game,
+        Fill a Deck,
+        Distribute the cards of the Deck to the players.
+        Make each Player play() a Card, where each player should only 
+        play 1 card per turn, and all players have to play at each turn 
+        until they have no cards left.
+        At the end of each turn a print is done of:
+            The turn count.
+            The list of active cards.
+            The number of cards in the history_cards.
+        """
+        
         deck=Deck()
         deck.fill_deck()
         deck.shuffle()
@@ -68,10 +82,11 @@ class Board:
                 break
             self.turn_count+=1 
              
-            print(f'Turncount : {self.turn_count}     Number of cards in history : {len(self.history_cards)}')
-            for i in self.active_cards:
-                print("Active cards are : ", i.value,i.icon)
-            print('------------------------------------------------------------------------------')
+            crds=''
+            for actcrd in self.active_cards:
+                crds=crds+f'{actcrd.value}{actcrd.icon} ,'
+            print(f'Turn count: {self.turn_count}\nNumber of cards in history: \n{len(self.history_cards)}\nActive cards:\n{crds}')
+            print('----------------')
 
     def __str__(self) -> str:
         """
@@ -79,20 +94,44 @@ class Board:
         
         :return: information string.
         """
-        #self.players: [Player] = players
-        #self.turn_count: int = 0
-        #self.active_cards: [Card] = [] #last card played by each player
-        #self.history_cards: [Card] = []
-        info = f'Players:\n{self.playername} \ncards:{self.cards}\nturn_count:{self.turn_count} \nnumber_of_cards:{self.number_of_cards} \nhistory:{self.history_cards}\n'
+
+        allplayernames=''
+        for n in self.players:
+            allplayernames=allplayernames + n.playername + ', '
+        info = f'Players:\n{allplayernames}\nTurn: {self.turn_count}\nCards:\n{self.active_cards}\nHistory:\n{self.history_cards}\n'
         return info
 
 class Inviteplayers:
-    def __new__(self) -> Union[bool,List [Player]]:
-        self.players: [Player] = []
+    """
+    The class will just create a bunch of players.
+    
+    Inherited Classes
+    -----------------
+    none
+    
+    Attributes
+    ----------
+    players: a list of Player objects.
+    
+    Methods:
+    --------
+    __new__    : Initializes the object and allows a return object
+    __str__     : Function that returns an information string of the object.
+    """
+    
+    def __new__(self) -> Union[bool,List[Player]]:
+        """
+        Function that will ask for the playernames and it will return
+        a list of Player objects, if no players then a False is returned.
+        
+        :returns: a list of Players objects or False if no players.
+        """
+        
+        self.players: List[Player] = []
         plyer=0
         while True:
             plyer+=1
-            new_player=input(f"Player {plyer} enter your name (Return to finish!) : ")
+            new_player=input(f"Player {plyer} enter your name please(Return to finish!): ")
             if new_player == '' and plyer == 1:
                 return False
             elif new_player == '':
@@ -101,6 +140,3 @@ class Inviteplayers:
         return(self.players)
 
 
-a=Board()
-print('@@@@@@@@@@@@@@@@@@@@ @@@@@@@@@@@@@@')
-print(a)

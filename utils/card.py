@@ -25,7 +25,7 @@ class Symbol:
     TypeError : ('Exception: Unknown icon!')
     """
 
-    def __init__(self, icon: chr):
+    def __init__(self, icon: chr) -> None:
         """
         Init function that will initialize an icon and set its color. If icon
         is unknown then color will be empty.
@@ -75,7 +75,7 @@ class Card(Symbol):
     TypeError("Exception: Unknown card value!")
     """
 
-    def __init__(self, value: str, icon: chr):
+    def __init__(self, value: str, icon: chr) -> None:
         """
         Init function that will initialize a card using the received value and 
         icon.

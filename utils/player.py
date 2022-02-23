@@ -38,7 +38,7 @@ class Player:
                   The played card is then removed.
     """
     
-    def __init__(self,playername: str):
+    def __init__(self,playername: str) -> None:
         """
         Init function that will initialize a Player.
         

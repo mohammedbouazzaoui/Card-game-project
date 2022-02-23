@@ -1,32 +1,41 @@
-# challenge-card-game-becode
-Project @ Becode : Create a basic card game.
+#README FILE
+#############
+#Author: Bouazzaoui M.
+#Date: 23/02/2022
+#
 
-# Challenge: OOP in python with a card game
+## DESCRIPTION
+--------------
+The game will simulate players that receive cards from 52 carddeck and
+will simulate a game game by having every player pick automatically
+a random card and play it against the other players.
+So for every round evey player has to show one card.
+When all the cards have been shown, the game ends.
+This is a game to be run in command mode no graphics available.
 
-- Repository: `challenge-card-game-becode`
-- Type of Challenge: `Consolidation`
-- Duration: `3 days`
-- Deadline: `23/02/22 4:30 PM`
-- Team challenge : `solo`
 
-## Mission objectives
+## INSTALLATION
+---------------
+copy following files to the same directory:
 
-Create a card game in python.
+main.py
+card.py
+game.py
+player.py
 
-![Card game!](https://media.giphy.com/media/3o7TKP35NXE4rWwXjW/giphy.gif)
 
-## Learning Objectives
+## USAGE
+---------
 
-- Make a good usage of classes.
-- Use Object-Oriented-Programming (OOP).
-- Use imports in a clean way.
-- Use a clean architecture.
-- Structure a project.
-- Go deeper in object inheritance.
+from the same directory you can start the game with:
+python main.py
 
-## The Mission
+The game will ask for the names of all players. End the input with an empty return.
+This will start the game, a carddeck will generated and shuffled. The cards will be
+evenly distributed to the players.
+The players will pick randomly a card from their cards and play this card.
+One round is when every player has shown his card.
 
-You apply for a job as a developer for an online casino called `WeTakeYourMoney`.
+The game ends when the players have used all their cards.
+You can only follow a play simulation on screen for now.
 
-They are interested in your profile.
-During the interview challenge, they ask you to build a card game in Python.
